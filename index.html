@@ -7,6 +7,7 @@
 	<!-- Favicon para navegadores -->
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<!-- Icono para Apple Touch -->
 	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -76,9 +77,25 @@
             <p><strong>4.</strong> El archivo convertido se descargará automáticamente.</p>
         </div>
     </div>
+	<button id="zammad-feedback-form">Feedback</button>
+
+<script id="zammad_form_script" src="http://192.167.51.161:8080/assets/form/form.js"></script>
+
+<script>
+$(function() {
+  $('#zammad-feedback-form').ZammadForm({
+    messageTitle: 'Solicitud de soporte ACB Soluciones TIC\'s',
+    messageSubmit: 'Enviar',
+    messageThankYou: 'Gracias por contactarnos (#%s)! Nos pondremos en contacto con usted lo antes posible.',
+    modal: true,
+    attachmentSupport: true
+  });
+});
+</script>
     <footer>
         <p><a href="https://www.wipo.int/copyright/es/" target="_blank">&copy; 2025 acbsolucionestic.com.co</a></p>
     </footer>
     <script src="script.js"></script>
 </body>
 </html>
+
