@@ -205,6 +205,68 @@
             <p><strong>4.</strong> El archivo convertido se descargará automáticamente en tu dispositivo.</p>
         </div>
     </div>
+	<!-- NORMATIVIDAD VIGENTE -->
+<section id="normatividad" class="py-5 bg-light">
+    <div class="container">
+
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Normatividad Vigente</h2>
+            <p class="text-muted">
+                Consulte la Resolución 948 de 2026 y sus anexos técnicos.
+            </p>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+
+                <label for="pdfSelector" class="form-label fw-semibold">
+                    Seleccione un documento:
+                </label>
+
+                <select id="pdfSelector" class="form-select mb-4">
+                    <option value="">Seleccione...</option>
+                    <option value="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-0948-de-2026.pdf">
+                        Resolución 948 de 2026
+                    </option>
+                    <option value="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/OT/anexo-tecnico1-resolucion-948-de-2026.pdf">
+                        Anexo Técnico 1
+                    </option>
+                    <option value="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/OT/anexo-tecnico2-resolucion-948-de-2026.pdf">
+                        Anexo Técnico 2
+                    </option>
+                </select>
+
+                <iframe
+                    id="pdfViewer"
+                    width="100%"
+                    height="800"
+                    style="border:1px solid #ddd; display:none;">
+                </iframe>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+document.getElementById('pdfSelector').addEventListener('change', function() {
+
+    const pdfUrl = this.value;
+    const viewer = document.getElementById('pdfViewer');
+
+    if(pdfUrl){
+        viewer.src =
+            'https://docs.google.com/gview?embedded=true&url=' +
+            encodeURIComponent(pdfUrl);
+
+        viewer.style.display = 'block';
+    } else {
+        viewer.src = '';
+        viewer.style.display = 'none';
+    }
+});
+</script>
 	<footer>
         <p><a href="https://www.wipo.int/copyright/es/" target="_blank">&copy; 2026 acbsolucionestic.com.co</a></p>
     </footer>
